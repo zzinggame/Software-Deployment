@@ -12,10 +12,11 @@
   <a href="https://www.youtube.com/AlyssaNetwork"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube"></a>
 </div>
 <p align="center">
-  <b>This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources</b>
+  <br><b>This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources</b>
 </p>
+
 ## Contribute
 
-<p style="text-align:center;">Contributions are welcome!</p>
+Contributions are welcome!
 
 For discussion, feedback or if you come across dead links please head over to [issues](https://github.com/zzinggame/Research-Development-Blog/issues/) page.
