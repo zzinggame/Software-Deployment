@@ -12,7 +12,7 @@
   <a href="https://www.youtube.com/AlyssaNetwork"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube"></a>
 </div>
 <p align="center">
-  <br><b>This repository is a collection of my knowledge map, digital, research, development, technical, website, forum, article/information resources</b><br>
+  <b>This repository is a collection of my knowledge map, digital, research, development, technical, website, forum, article/information resources</b><br>
 </p>
 
 ## Contribute
