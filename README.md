@@ -11,6 +11,10 @@
   <a href="https://twitter.com/AlyssarieN"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=whitee" alt="Tweet"></a>
   <a href="https://www.youtube.com/AlyssaNetwork"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube"></a>
 </div>
+<p align="center">
+  <b>This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources</b><br>
+  <br><br>
+</p>
 This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources
 
 ## Contribute
