@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://w.wallhaven.cc/full/39/wallhaven-399z3d.jpg"/>
   <h1 align="center">Welcome To My Personal Study Blog</h1>
-  <h3 align="center">Digital Art / CGI / Technical Digital / Blog</h3>
+  <h2 align="center">Digital Art / CGI / Technical Digital / Blog</h2>
 </div>
 
 <div align="center">
