@@ -14,9 +14,6 @@
 <p align="center">
   <b>This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources</b>
 </p>
-
-This repository is a collection of my knowledge map, digital, research, development, technical, article/information resources
-
 ## Contribute
 
 <p style="text-align:center;">Contributions are welcome!</p>
