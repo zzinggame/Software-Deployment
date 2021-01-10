@@ -21,3 +21,12 @@ if ( BleachBit == 'true' ):
 
 if ( memreduct == 'true' ):
     install_memreduct()
+
+if ( MicrosoftEdge == 'true' ):
+    install_msedge()
+
+if ( WindowsTerminal == 'true' ):
+    install_terminal()
+
+if ( Listary == 'true' ):
+    install_listary()

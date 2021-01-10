@@ -1,6 +1,6 @@
-from pywinauto import Application, application, Desktop, keyboard, mouse, timings
-from config import *
-import os, time, pywinauto, gdown, shutil
+from pywinauto import Application, application, Desktop, keyboard, timings
+import os, time, pywinauto, gdown, shutil, wget, requests
+from lastversion import lastversion
 
 dsk=pywinauto.Desktop(backend='uia')
 path=os.getcwd()
@@ -11,7 +11,7 @@ def install_mayacrack():
     os.system('cls')
     os.system(rf"{path}\tools\7za.exe x {path}\software\Maya2020.4.7z -o{path}\software")
     os.system('cls')
-    print('Installing Autodesk Maya 2020...')
+    print('Installing Autodesk Maya 2020.....')
     os.system('".\\software\\Autodesk Maya 2020.4\\Setup.exe" --silent')
     Application(backend='uia').start("C:\\Program Files\\Autodesk\\Maya2020\\bin\\maya.exe")
     time.sleep(10)
@@ -67,45 +67,91 @@ def install_maya():
     os.system('cls')
     os.system(rf"{path}\tools\7za.exe x {path}\software\Maya2020.4.7z -o{path}\software")
     os.system('cls')
-    print('Installing Autodesk Maya 2020...')
+    print('Installing Autodesk Maya 2020.....')
     os.system('".\\software\\Autodesk Maya 2020.4\\Setup.exe" --silent')
     os.system('cls')
 
 def install_flux():
-    print('Installing f.lux...')
+    print('Installing f.lux.....')
     os.system("choco install f.lux -y")
     os.system("TASKKILL /F /IM flux.exe")
     os.system(rf"REG IMPORT {path}\software\flux_prefs.reg")
     os.system('cls')
 
 def install_7zip():
-    print('Installing 7zip...')
+    print('Installing 7zip.....')
     os.system("choco install 7zip.install -y")
-    os.system(rf"{path}\software\7zipassociate.bat")
+    shutil.copy2(rf'{path}\software\config\7z.ico', 'C:\\Program Files\\7-Zip')
+    shutil.copy2(rf'{path}\software\config\001.ico', 'C:\\Program Files\\7-Zip')
+    os.system(rf"{path}\software\config\7zipassociate.bat")
+    os.system("taskkill /im explorer.exe /F")
+    os.system("start explorer.exe")
     os.system('cls')
 
 def install_bcu():
-    print('Installing Bulk Crap Uninstaller...')
+    print('Installing Bulk Crap Uninstaller.....')
     os.system("choco install bulk-crap-uninstaller -y")
     os.system('cls')
 
 def install_bleachbit():
-    print('Installing BleachBit...')
+    print('Installing BleachBit.....')
     os.system("choco install bleachbit -y")
+    shutil.copyfile(os.path.join(rf'{path}\software\config', 'bleachbit.ini'), os.path.join(rf'{home}\AppData\Roaming\BleachBit', 'bleachbit.ini'))
     os.system('cls')
 
 def install_memreduct():
-    print('Installing MemReduct...')
+    print('Installing MemReduct.....')
     os.system("choco install memreduct -y")
-    shutil.copyfile(os.path.join(rf'{path}\software', 'memreduct.ini'), os.path.join(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', 'memreduct.ini'))
+    shutil.copyfile(os.path.join(rf'{path}\software\config', 'memreduct.ini'), os.path.join(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', 'memreduct.ini'))
     os.system('cls')
 
 def install_msedge():
-    print('Intalling Microsoft Edge...')
+    print('Intalling Microsoft Edge.....')
     os.system("choco install microsoft-edge -y")
     os.system('cls')
 
 def install_terminal():
-    print('Installing Windows Terminal')
-    os.system("choco install microsoft-windows-terminal")
+    print('Installing Windows Terminal.....')
+    os.system("choco install microsoft-windows-terminal -y")
+    shutil.copyfile(os.path.join(rf'{path}\software\config', 'settings.json'), os.path.join(rf'{home}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState', 'settings.json'))
+    os.system('cls')
+
+def install_listary():
+    print('Installing Listary.....')
+    wget.download("https://www.listary.com/download/beta/listary6/ListaryInstaller.exe", rf"{path}\software\ListaryInstaller.exe")
+    os.system('".\\software\\ListaryInstaller.exe" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART')
+    os.system('cls')
+
+def install_qbittorent():
+    print('Installing Qbittorrent.....')
+    os.system("choco install qbittorrent -y")
+    os.system('cls')
+
+def install_blender():
+    print('Installing Blender.....')
+    blender = lastversion.latest("DotBow/Blender-Launcher", output_format='assets')
+    wget.download(blender[0], rf"{path}\software\Blender_Laucher.zip")
+    os.system(rf"{path}\tools\7za.exe x {path}\software\Blender_Launcher.zip -o{path}\software")
+    os.makedirs('C:\\Program Files\\Blender Launcher', exist_ok=True)
+    shutil.copy2(rf'{path}\software\Blender Launcher.exe', 'C:\\Program Files\\Blender Launcher')
+    os.system('cls')
+
+def install_mactype():
+    print('Installing Mactype.....')
+    os.system('choco install mactype -y')
+    os.system('cls')
+
+def install_localeemulator():
+    print('Installing Locale Emulator.....')
+    os.system('choco install locale-emulator -y')
+    os.system('cls')
+
+def install_imageglass():
+    print('Installing Image Glass.....')
+    imageglass = lastversion.latest("d2phap/ImageGlass", output_format='assets', assets_filter='x64.msi')
+    wget.download(imageglass[0], rf"{path}\software\ImageGlass_x64.msi")
+    os.system(rf"{path}\software\ImageGlass_x64.msi /VERYSILENT")
+    shutil.copy2(rf'{path}\software\config\igstartup.profile', 'C:\\Program Files\\ImageGlass')
+    shutil.copy2(rf'{path}\software\config\igconfig.xml', 'C:\\Program Files\\ImageGlass')
+    shutil.copytree(rf'{path}\software\config\Windows 10 Dark', 'C:\\Program Files\\ImageGlass\\Themes\\Windows 10 Dark', dirs_exist_ok=False)
     os.system('cls')
