@@ -15,3 +15,4 @@ cls
 call refreshenv
 cls
 python Install.py
+call refreshenv

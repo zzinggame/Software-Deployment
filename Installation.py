@@ -76,15 +76,15 @@ def install_flux():
     print('Installing f.lux.....')
     os.system("choco install f.lux -y")
     os.system("TASKKILL /F /IM flux.exe")
-    os.system(rf"REG IMPORT {path}\software\flux_prefs.reg")
+    os.system(rf"REG IMPORT {path}\software\config\Flux\flux_prefs.reg")
     os.system('cls')
 
 def install_7zip():
     print('Installing 7zip.....')
     os.system("choco install 7zip.install -y")
-    shutil.copy2(rf'{path}\software\config\7z.ico', 'C:\\Program Files\\7-Zip')
-    shutil.copy2(rf'{path}\software\config\001.ico', 'C:\\Program Files\\7-Zip')
-    os.system(rf"{path}\software\config\7zipassociate.bat")
+    shutil.copy2(rf'{path}\software\config\7Zip\7z.ico', 'C:\\Program Files\\7-Zip')
+    shutil.copy2(rf'{path}\software\config\7Zip\001.ico', 'C:\\Program Files\\7-Zip')
+    os.system(rf"{path}\software\config\7Zip\7zipassociate.bat")
     os.system("taskkill /im explorer.exe /F")
     os.system("start explorer.exe")
     os.system('cls')
@@ -97,13 +97,13 @@ def install_bcu():
 def install_bleachbit():
     print('Installing BleachBit.....')
     os.system("choco install bleachbit -y")
-    shutil.copyfile(os.path.join(rf'{path}\software\config', 'bleachbit.ini'), os.path.join(rf'{home}\AppData\Roaming\BleachBit', 'bleachbit.ini'))
+    shutil.copyfile(os.path.join(rf'{path}\software\config\BleachBit', 'bleachbit.ini'), os.path.join(rf'{home}\AppData\Roaming\BleachBit', 'bleachbit.ini'))
     os.system('cls')
 
 def install_memreduct():
     print('Installing MemReduct.....')
     os.system("choco install memreduct -y")
-    shutil.copyfile(os.path.join(rf'{path}\software\config', 'memreduct.ini'), os.path.join(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', 'memreduct.ini'))
+    shutil.copyfile(os.path.join(rf'{path}\software\config\MemReduct', 'memreduct.ini'), os.path.join(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', 'memreduct.ini'))
     os.system('cls')
 
 def install_msedge():
@@ -114,7 +114,7 @@ def install_msedge():
 def install_terminal():
     print('Installing Windows Terminal.....')
     os.system("choco install microsoft-windows-terminal -y")
-    shutil.copyfile(os.path.join(rf'{path}\software\config', 'settings.json'), os.path.join(rf'{home}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState', 'settings.json'))
+    shutil.copyfile(os.path.join(rf'{path}\software\config\WindowsTerminal', 'settings.json'), os.path.join(rf'{home}\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState', 'settings.json'))
     os.system('cls')
 
 def install_listary():
@@ -152,9 +152,9 @@ def install_imageglass():
     imageglass = lastversion.latest("d2phap/ImageGlass", output_format='assets', assets_filter='x64.msi')
     wget.download(imageglass[0], rf"{path}\software\ImageGlass_x64.msi")
     os.system(rf"{path}\software\ImageGlass_x64.msi /VERYSILENT")
-    shutil.copy2(rf'{path}\software\config\igstartup.profile', 'C:\\Program Files\\ImageGlass')
-    shutil.copy2(rf'{path}\software\config\igconfig.xml', 'C:\\Program Files\\ImageGlass')
-    shutil.copytree(rf'{path}\software\config\Windows 10 Dark', 'C:\\Program Files\\ImageGlass\\Themes\\Windows 10 Dark', dirs_exist_ok=False)
+    shutil.copy2(rf'{path}\software\config\ImageGlass\igstartup.profile', 'C:\\Program Files\\ImageGlass')
+    shutil.copy2(rf'{path}\software\config\ImageGlass\igconfig.xml', 'C:\\Program Files\\ImageGlass')
+    shutil.copytree(rf'{path}\software\config\ImageGlass\Windows 10 Dark', 'C:\\Program Files\\ImageGlass\\Themes\\Windows 10 Dark', dirs_exist_ok=False)
     os.system('cls')
 
 def install_youtubedl():
@@ -195,9 +195,9 @@ def install_ffmpeg():
 def install_sharex():
     print('Installing ShareX.....')
     os.system('choco install sharex -y')
-    shutil.copy2(rf'{path}\software\ApplicationConfig.json', rf'{home}\Documents\ShareX')
-    shutil.copy2(rf'{path}\software\HotkeysConfig.json', rf'{home}\Documents\ShareX')
-    shutil.copy2(rf'{path}\software\UploadersConfig.json', rf'{home}\Documents\ShareX')
+    shutil.copy2(rf'{path}\software\config\ShareX\ApplicationConfig.json', rf'{home}\Documents\ShareX')
+    shutil.copy2(rf'{path}\software\config\ShareX\HotkeysConfig.json', rf'{home}\Documents\ShareX')
+    shutil.copy2(rf'{path}\software\config\ShareX\UploadersConfig.json', rf'{home}\Documents\ShareX')
     os.system("taskkill /im ShareX.exe /F")
     os.system('cls')
 
