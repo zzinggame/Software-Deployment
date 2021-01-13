@@ -12,4 +12,6 @@ call refreshenv
 cls
 pip install -r requirements.txt --user
 cls
+call refreshenv
+cls
 python Install.py

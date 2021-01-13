@@ -1,12 +1,13 @@
 from pywinauto import Application, application, Desktop, keyboard, timings
-import os, time, pywinauto, gdown, shutil, wget, requests
+import os, time, pywinauto, gdown, shutil, wget
 from lastversion import lastversion
 
 dsk=pywinauto.Desktop(backend='uia')
 path=os.getcwd()
 home = os.path.expanduser('~')
+os.makedirs(rf"{home}\Desktop\ManualCrack", exist_ok=True)
 
-def install_mayacrack():
+def install_maya():
     timings.Timings.slow()
     gdown.download("https://drive.google.com/uc?export=download&id=1aegNaJNkPhueiSWu_JSOkDGwdDWsQZls", output=rf"{path}\software\Maya2020.4.7z")
     os.system('cls')
@@ -71,15 +72,6 @@ def install_mayacrack():
     os.system("TASKKILL /F /IM maya.exe")
     os.system('cls')
 
-def install_maya():
-    gdown.download("https://drive.google.com/uc?export=download&id=1aegNaJNkPhueiSWu_JSOkDGwdDWsQZls", output=rf"{path}\software\Maya2020.4.7z")
-    os.system('cls')
-    os.system(rf"{path}\tools\7za.exe x {path}\software\Maya2020.4.7z -o{path}\software")
-    os.system('cls')
-    print('Installing Autodesk Maya 2020.....')
-    os.system('".\\software\\Autodesk Maya 2020.4\\Setup.exe" --silent')
-    os.system('cls')
-
 def install_flux():
     print('Installing f.lux.....')
     os.system("choco install f.lux -y")
@@ -137,7 +129,7 @@ def install_qbittorent():
     os.system('cls')
 
 def install_blender():
-    print('Installing Blender.....')
+    print('Installing Blender.....\n\nWarning this is a Blender Launcher not actual Blender')
     blender = lastversion.latest("DotBow/Blender-Launcher", output_format='assets')
     wget.download(blender[0], rf"{path}\software\Blender_Laucher.zip")
     os.system(rf"{path}\tools\7za.exe x {path}\software\Blender_Launcher.zip -o{path}\software")
@@ -319,7 +311,7 @@ def install_mpv():
     os.system('choco install mpv -y')
     gdown.download("https://drive.google.com/uc?export=download&id=1DFygOXuNQfuLP2muQ6gnnh6r_KnJQF52", output=rf"{path}\software\mpv.7z")
     os.system(rf'"{path}\tools\7za.exe x {path}\software\mpv.7z -o"{path}\software\mpv""')
-    shutil.copytree(rf"{path}\software\FoundryRLM\RLM_Windows", rf"{home}\AppData\Roaming\mpv", dirs_exist_ok=True)
+    shutil.copytree(rf"{path}\software\mpv", rf"{home}\AppData\Roaming\mpv", dirs_exist_ok=True)
     os.system('cls')
 
 def install_zbrush():
@@ -336,3 +328,27 @@ def install_zbrush():
 
 def install_houdini():
     print('Installing Houdini.....')
+    gdown.download("https://drive.google.com/uc?export=download&id=1fD8vteczhZmfWSscOhXd6XSIv6WQBKa0", output=rf"{path}\software\Houdini_18.5.408.7z")
+    os.system(rf"{path}\tools\7za.exe x {path}\software\Houdini_18.5.408.7z -o{path}\software")
+    os.system(rf'""{path}\software\SideFX Houdini FX 18.5.408 Win x64\Houdini185408x64WinSetup.exe" /S /AcceptEULA=2020-05-05 /HoudiniServer=Yes /EngineMaya=Yes /EngineUnreal=Yes /HQueueServer=No /HQueueClient=No /IndustryFileAssociations=Yes /MainApp=Yes /Registry=Yes"')
+    shutil.copy2(rf'{path}\software\SideFX Houdini FX 18.5.408 Win x64\Fix\Houdini-18.5-Keygen-Win.exe', rf'{home}\Desktop\Manual_Crack')
+    os.system('cls')
+
+def install_creativecloud():
+    print('Installing Adobe Creative Cloud.....\n\nWarning: This installation need user input.....')
+    wget.download('https://prod-rel-ffc-ccm.oobesaas.adobe.com/adobe-ffc-external/core/v1/wam/download?sapCode=KCCC&productName=Creative%20Cloud&os=win&environment=prod&api_key=CCHomeWeb1', rf"{path}\software\CreativeCloud.exe")
+    os.system(rf'""{path}\software\CreativeCloud.exe" /quiet"')
+    os.system('"TASKKILL /F /IM "Creative Cloud.exe""')
+    gdown.download("https://drive.google.com/uc?export=download&id=1eBTzqQAWLS_OzqyG-O5MEDUDTh7O53hA", output=rf"{path}\software\GenP_2.7.zip")
+    os.system(rf"{path}\tools\7za.exe x {path}\software\GenP_2.7.zip -o{home}\Desktop\Manual_Crack")
+    os.system('cls')
+
+def install_vscode():
+    print('Installing Visual Studio Code.....')
+    os.system('choco install vscode -y')
+    os.system('cls')
+
+def install_soulseek():
+    print('Installing SoulSeek.....')
+    os.system('choco install  soulseek -y')
+    os.system('cls')
