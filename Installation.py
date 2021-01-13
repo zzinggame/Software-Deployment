@@ -5,7 +5,6 @@ from lastversion import lastversion
 dsk=pywinauto.Desktop(backend='uia')
 path=os.getcwd()
 home = os.path.expanduser('~')
-os.makedirs(rf"{home}\Desktop\ManualCrack", exist_ok=True)
 
 def install_maya():
     timings.Timings.slow()
@@ -97,13 +96,16 @@ def install_bcu():
 def install_bleachbit():
     print('Installing BleachBit.....')
     os.system("choco install bleachbit -y")
-    shutil.copyfile(os.path.join(rf'{path}\software\config\BleachBit', 'bleachbit.ini'), os.path.join(rf'{home}\AppData\Roaming\BleachBit', 'bleachbit.ini'))
+    os.makedirs(rf'{home}\AppData\Roaming\BleachBit', exist_ok=True)
+    shutil.copy2(rf'{path}\software\config\BleachBit\bleachbit.ini', rf'{home}\AppData\Roaming\BleachBit')
     os.system('cls')
 
 def install_memreduct():
     print('Installing MemReduct.....')
     os.system("choco install memreduct -y")
-    shutil.copyfile(os.path.join(rf'{path}\software\config\MemReduct', 'memreduct.ini'), os.path.join(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', 'memreduct.ini'))
+    os.system("TASKKILL /F /IM memreduct.exe")
+    os.makedirs(rf'{home}\AppData\Roaming\Henry++\Mem Reduct', exist_ok=True)
+    shutil.copy2(rf'{path}\software\config\MemReduct\memreduct.ini', rf'{home}\AppData\Roaming\Henry++\Mem Reduct')
     os.system('cls')
 
 def install_msedge():
@@ -131,7 +133,7 @@ def install_qbittorent():
 def install_blender():
     print('Installing Blender.....\n\nWarning this is a Blender Launcher not actual Blender')
     blender = lastversion.latest("DotBow/Blender-Launcher", output_format='assets')
-    wget.download(blender[0], rf"{path}\software\Blender_Laucher.zip")
+    wget.download(blender[0], rf"{path}\software\Blender_Launcher.zip")
     os.system(rf"{path}\tools\7za.exe x {path}\software\Blender_Launcher.zip -o{path}\software")
     os.makedirs('C:\\Program Files\\Blender Launcher', exist_ok=True)
     shutil.copy2(rf'{path}\software\Blender Launcher.exe', 'C:\\Program Files\\Blender Launcher')
@@ -151,7 +153,7 @@ def install_imageglass():
     print('Installing Image Glass.....')
     imageglass = lastversion.latest("d2phap/ImageGlass", output_format='assets', assets_filter='x64.msi')
     wget.download(imageglass[0], rf"{path}\software\ImageGlass_x64.msi")
-    os.system(rf"{path}\software\ImageGlass_x64.msi /VERYSILENT")
+    os.system(rf"{path}\software\ImageGlass_x64.msi /quiet")
     shutil.copy2(rf'{path}\software\config\ImageGlass\igstartup.profile', 'C:\\Program Files\\ImageGlass')
     shutil.copy2(rf'{path}\software\config\ImageGlass\igconfig.xml', 'C:\\Program Files\\ImageGlass')
     shutil.copytree(rf'{path}\software\config\ImageGlass\Windows 10 Dark', 'C:\\Program Files\\ImageGlass\\Themes\\Windows 10 Dark', dirs_exist_ok=False)
@@ -318,7 +320,7 @@ def install_zbrush():
     print('Installing Zbrush 2021.....')
     gdown.download("https://drive.google.com/uc?export=download&id=1uNOQhrOMJF9IRuf2AU-cVcavQssjw2Mc", output=rf"{path}\software\Zbrush2021.5.7z")
     os.system(rf"{path}\tools\7za.exe x {path}\software\Zbrush2021.5.7z -o{path}\software")
-    os.system(rf'"{path}\software\Pixologic ZBrush 2021.5\ZBrush_2021.5_Full Installer.exe --mode unattended"')
+    os.system(rf'""{path}\software\Pixologic ZBrush 2021.5\ZBrush_2021.5_Full Installer.exe" --mode unattended"')
     shutil.copy2(rf'{path}\software\Pixologic ZBrush 2021.5\ZBrush_2021.5_Updater for 2021.exe', 'C:\\Program Files\\Pixologic\\ZBrush 2021')
     os.chdir(r"C:\\Program Files\\Pixologic\\ZBrush 2021")
     os.system('""ZBrush_2021.5_Updater for 2021.exe" --mode unattended"')
