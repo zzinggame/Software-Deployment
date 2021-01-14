@@ -304,7 +304,7 @@ def install_foundrycrack():
     gdown.download("https://drive.google.com/uc?export=download&id=1J7-tfUVy2-CgBxwPEkHGkRMIf32NpEKm", output=rf"{path}\software\FoundryRLM.zip")
     os.system(rf'"{path}\tools\7za.exe x {path}\software\FoundryRLM.zip -o"{path}\software\FoundryRLM""')
     shutil.copytree(rf"{path}\software\FoundryRLM\RLM_Windows", r"C:\RLM_Windows")
-    os.chdir(r"C:\RLM_Windows")
+    os.chdir("C:\RLM_Windows")
     os.system("rlm_install.cmd")
     os.system('cls')
 
